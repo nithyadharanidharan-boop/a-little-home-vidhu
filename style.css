@@ -1,0 +1,504 @@
+
+/* ==========================================
+   A LITTLE HOME - VIDHU
+   COMPLETE CINEMATIC DESIGN
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #080d18;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ==========================================
+   OPENING PAGE
+========================================== */
+
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(5, 9, 20, 0.60),
+            rgba(5, 9, 20, 0.78)
+        ),
+        url("assets/images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle,
+        transparent 10%,
+        rgba(0, 0, 0, 0.55) 100%
+    );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 30px;
+    max-width: 850px;
+
+    animation: fadeUp 2s ease forwards;
+}
+
+.small-text {
+    color: #d7bd83;
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 85px);
+    font-weight: 400;
+    color: #f5e8ca;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 65px);
+    color: #d9b878;
+    letter-spacing: 8px;
+    margin-top: 5px;
+}
+
+.intro {
+    max-width: 520px;
+    margin: 25px auto 35px;
+    font-size: 14px;
+    line-height: 2;
+    color: #e0dce0;
+    font-weight: 300;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.4s ease;
+}
+
+#startButton {
+    padding: 14px 30px;
+    border: 1px solid #c7a76b;
+    border-radius: 30px;
+    background: rgba(201, 165, 103, 0.10);
+    color: #f5dfb2;
+    letter-spacing: 1px;
+}
+
+#startButton:hover {
+    background: #c7a76b;
+    color: #080d18;
+    transform: translateY(-3px);
+}
+
+#musicButton {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 100;
+
+    padding: 10px 20px;
+    border: 1px solid rgba(215, 189, 131, 0.6);
+    border-radius: 30px;
+    background: rgba(10, 15, 28, 0.85);
+    color: #e9d4a5;
+    backdrop-filter: blur(10px);
+}
+
+/* ==========================================
+   STORY VISIBILITY
+========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.story-section {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 25px;
+
+    background:
+        linear-gradient(
+            rgba(5, 9, 20, 0.88),
+            rgba(5, 9, 20, 0.92)
+        ),
+        url("assets/images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* UPDATED: FULL SCREEN, NO SCROLLING */
+
+.story-section.active {
+    display: flex;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 75px 25px 25px;
+
+    animation: sectionReveal 1.2s ease;
+}
+
+/* ==========================================
+   STORY CONTENT
+========================================== */
+
+.story-container {
+    width: 100%;
+    max-width: 850px;
+    max-height: 100%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.story-label {
+    color: #c7a76b;
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.story-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 400;
+    color: #e6c68e;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-divider {
+    color: #c7a76b;
+    font-size: 22px;
+    margin: 25px 0 35px;
+}
+
+/* UPDATED: BIGGER BIRTHDAY MESSAGE */
+
+.story-text {
+    color: #eee9e3;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: left;
+
+    white-space: pre-line;
+    min-height: 0;
+
+    padding: 0 10px;
+}
+
+/* NEXT CHAPTER */
+
+#nextButton {
+    display: none;
+    margin: 25px auto 10px;
+    padding: 14px 32px;
+
+    border: 1px solid #c7a76b;
+    border-radius: 30px;
+
+    background: rgba(201, 165, 103, 0.10);
+    color: #f5dfb2;
+
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+#nextButton:hover {
+    background: #c7a76b;
+    color: #080d18;
+    transform: translateY(-3px);
+}
+
+.story-progress {
+    color: #a99a7d;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-top: 15px;
+}
+
+/* ==========================================
+   FINAL BIRTHDAY SCREEN
+========================================== */
+
+.final-section {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(5, 9, 20, 0.65),
+            rgba(5, 9, 20, 0.88)
+        ),
+        url("assets/images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.final-section.active {
+    display: flex;
+    animation: sectionReveal 2s ease;
+}
+
+.final-content {
+    max-width: 850px;
+    animation: fadeUp 2s ease;
+}
+
+.final-content h1 {
+    font-size: clamp(32px, 6vw, 65px);
+    margin-bottom: 10px;
+}
+
+.final-content h2 {
+    font-size: clamp(35px, 7vw, 75px);
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+}
+
+.final-content p {
+    color: #eee4d4;
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+.final-heart {
+    font-size: 35px;
+    margin: 35px 0;
+    animation: heartGlow 2s infinite alternate;
+}
+
+.final-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #e6c68e;
+    font-size: clamp(28px, 5vw, 45px);
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.final-message {
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartGlow {
+    from {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .small-text {
+        letter-spacing: 3px;
+    }
+
+    .intro {
+        font-size: 13px;
+    }
+
+    #musicButton {
+        top: 15px;
+        right: 15px;
+    }
+
+    /* FULL SCREEN STORY ON MOBILE */
+
+    .story-section {
+        background-attachment: scroll;
+    }
+
+    .story-section.active {
+        padding: 75px 18px 20px;
+    }
+
+    .story-heading {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+
+    .story-label {
+        margin-bottom: 15px;
+        letter-spacing: 3px;
+        font-size: 9px;
+    }
+
+    .story-divider {
+        margin: 12px 0 18px;
+    }
+
+    /* BIGGER MOBILE TEXT */
+
+    .story-text {
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 0;
+    }
+
+    #nextButton {
+        margin: 18px auto 8px;
+        padding: 12px 24px;
+        font-size: 11px;
+    }
+
+    .story-progress {
+        margin-top: 10px;
+    }
+
+    .final-content p {
+        font-size: 12px;
+    }
+
+    .final-section {
+        background-attachment: scroll;
+    }
+
+} 
+
+/* ==========================================
+   CHAPTER HEADING SIZE ADJUSTMENT
+========================================== */
+
+.story-heading {
+    font-size: 30px;
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+
+    .story-heading {
+        font-size: 25px;
+        margin-bottom: 6px;
+        line-height: 1.1;
+    }
+
+}
+
+/* FIX: SHOW THE COMPLETE CONTINUE BUTTON */
+
+.story-container {
+    overflow: visible;
+    max-height: none;
+}
+
+.story-section.active {
+    padding-top: 65px;
+    padding-bottom: 15px;
+}
+
+.story-divider {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+#nextButton {
+    position: relative;
+    z-index: 10;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+}
+
+.story-progress {
+    margin-top: 8px;
+} 
+ 
